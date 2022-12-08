@@ -74,7 +74,7 @@ export async function createScene(
 
     // Lights and Skybox
     v3DCore.addAmbientLight(new Color3(1, 1, 1));
-    v3DCore.setBackgroundColor(Color3.FromHexString('#e7a2ff'));
+    v3DCore.setBackgroundColor(Color3.FromHexString('#00b2bd'));
 
     v3DCore.renderingPipeline.depthOfFieldEnabled = false;
 
@@ -130,6 +130,7 @@ export function updateSpringBones(vrmManager: VRMManager) {
 
 export function updateBuffer(data: Uint8Array, boneState: BoneState) {
     let jsonStr = textDecode.decode(data);
+    // console.log('JSONSTR:::', jsonStr);
     let boneRotationsData: CloneableQuaternionMap = JSON.parse(jsonStr);
     boneState.boneRotations = boneRotationsData;
     boneState.bonesNeedUpdate = true;

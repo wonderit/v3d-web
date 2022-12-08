@@ -100,7 +100,8 @@ export class V3DWeb {
         this.switchModel();
     }
 
-    private readonly fpsControl = this.controlsElement ? new FPS() : null;
+    // private readonly fpsControl = this.controlsElement ? new FPS() : null;
+    private readonly fpsControl = new FPS();
     private readonly holistic = new Holistic(this.holisticConfig);
     private holisticState: HolisticState = {
         ready: false,
@@ -135,7 +136,7 @@ export class V3DWeb {
         if (!this.videoElement || !this.webglCanvasElement) {
             globalInit = true;
             this.videoElement =
-                document.getElementsByClassName('input_video')[0] as HTMLVideoElement;
+                document.getElementById('input_video') as HTMLVideoElement;
             this.videoCanvasElement =
                 document.getElementById('video-canvas') as HTMLCanvasElement;
             this.webglCanvasElement =
@@ -207,6 +208,7 @@ export class V3DWeb {
                                 this._updateBufferCallback,
                                 this.fpsControl
                             );
+                            console.log('fpscontrol check', this.fpsControl);
                             this.holistic.initialize().then(() => {
                                 // Set initial options
                                 setHolisticOptions(this.holisticOptions, this.videoElement!,
@@ -247,7 +249,7 @@ export class V3DWeb {
                 width: 640,
                 height: 480,
                 deviceId: {
-                    exact: this.cameraList[idx].deviceId
+                    exact: this.cameraList[idx]?.deviceId
                 }
             }
         })
@@ -327,6 +329,7 @@ export class V3DWeb {
         );
         this._vrmManager.rootMesh.rotationQuaternion = Quaternion.RotationYawPitchRoll(0, 0, 0);
     }
+
 }
 
 export default V3DWeb;

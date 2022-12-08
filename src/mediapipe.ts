@@ -88,7 +88,7 @@ export interface HolisticOptions extends Options, OptionMap {
 
 export const InitHolisticOptions: HolisticOptions = Object.freeze({
     selfieMode: true,
-    modelComplexity: 1,
+    modelComplexity: 0,
     useCpuInference: false,
     cameraOn: true,
     smoothLandmarks: true,
@@ -137,6 +137,9 @@ export function onResults(
                 debugInfo.updateHandNormalArrows(
                     resultLeftHandNormals, resultRightHandNormals, resultPoseLandmarks);
                 debugInfo.updatePoseNormalArrows(resultPoseNormals, resultPoseLandmarks);
+                //
+                // if (Date.now() % 30 == 1)
+                //     console.log('debuginfoooo', resultPoseLandmarks);
             }
 
             workerPose.midHipPos.then((v) => {

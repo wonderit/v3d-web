@@ -19,6 +19,11 @@
 
     <meta name="theme-color" content="#fafafa">
 
+    <link rel="stylesheet" href=
+        "https://unpkg.com/onsenui/css/onsenui.css" />
+    <link rel="stylesheet" href=
+        "https://unpkg.com/onsenui/css/onsen-css-components.min.css" />
+
     <link rel="stylesheet" type="text/css" href="css/control_utils.css" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/normalize.css" crossorigin="anonymous">
 
@@ -29,23 +34,28 @@
 </head>
 
 <body>
-
 <!-- Add your site or application content here -->
 <main class="container default-primary-color">
-    <video class="input_video"></video>
-    <div id="wrapper" class="canvas-container">
-        <canvas id="webgl-canvas" class="output_canvas">
-        </canvas>
-        <canvas id="video-canvas" class="video_output_canvas">
-        </canvas>
+
+    <div id="wrapper" class="canvas-container" >
+        <video id="input_video" class="input_video" autoplay loop muted controls controlslist="nofullscreen nodownload noremoteplayback" disablepictureinpicture></video>
+        <video class="example_video" src="./assets/samples/streching.webm" autoplay loop muted controls controlslist="nofullscreen nodownload noremoteplayback" disablepictureinpicture></video>
+        <canvas id="webgl-canvas" class="output_canvas"></canvas>
+        <canvas id="video-canvas" class="video_output_canvas"></canvas>
+
     </div>
+
 <!--    <div class="loading" id="loading">-->
 <!--        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>-->
 <!--        <div class="message secondary-text-color">-->
 <!--            Loading...-->
 <!--        </div>-->
 <!--    </div>-->
-    </div>
+    <div class="control-panel" id="control-panel"> </div>
+    <button id="debug-button" class="fab app-fab--absolute">
+        <i class="zmdi zmdi-tv"></i>
+    </button>
+
 </main>
 <script type="module" src="main.test.js"></script>
 </body>

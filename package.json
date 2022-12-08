@@ -30,7 +30,7 @@
     "scripts": {
         "build": "webpack --config webpack.config.js",
         "debug": "webpack-dev-server --config webpack.test.config.js",
-        "start": "npm run build && npm run dev",
+        "start": "npm run build && tsc",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "devDependencies": {
@@ -39,7 +39,13 @@
         "@types/webpack": "^5.28.0",
         "chroma-js": "^2.1.2",
         "copy-webpack-plugin": "^10.0.0",
+        "css-loader": "^6.7.2",
         "kalmanjs": "^1.1.0",
+        "mini-css-extract-plugin": "^2.7.2",
+        "node-sass": "^8.0.0",
+        "sass": "^1.56.1",
+        "sass-loader": "^13.2.0",
+        "style-loader": "^3.3.1",
         "ts-loader": "^9.2.6",
         "typescript": "^4.5.2",
         "webpack": "^5.64.2",
@@ -47,6 +53,7 @@
         "webpack-dev-server": "^4.5.0"
     },
     "dependencies": {
+        "@material/fab": "^14.0.0",
         "@mediapipe/camera_utils": "^0.3.1632432234",
         "@mediapipe/control_utils": "^0.6.1629159505",
         "@mediapipe/drawing_utils": "^0.3.1620248257",
