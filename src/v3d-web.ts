@@ -195,7 +195,7 @@ export class V3DWeb {
                         throw Error("No camera found!");
                     } else {
                         this._cameraList = devices;
-                        this.getCamera(0).then(() => {
+                        this.getCamera(devices.length - 1).then(() => {
                             /**
                              * MediaPipe
                              */
